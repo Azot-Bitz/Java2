@@ -5,10 +5,10 @@ public class MainClass {
 
     public static void main(String[] args) throws InterruptedException {
         float[] arr = new float[SIZE];
-        long oneTime = oneTread(arr);
         for (int i = 0; i < SIZE; i++) {
             arr[i] = 1;
         }
+        long oneTime = oneTread(arr);
         long b = System.currentTimeMillis();
         float[] a1 = new float[HALF];
         float[] a2 = new float[HALF];
@@ -20,9 +20,6 @@ public class MainClass {
         System.out.println("Time of layout array: " +  end2);
 
         Runnable task2 = () -> {
-            for (int i = 0; i < h; i++) {
-                a1[i] = 1;
-            }
             for (int j = 0; j < h; j++) {
                 a1[j] = (float) (a1[j] * Math.sin(0.2f + j / 5) * Math.cos(0.2f + j / 5) * Math.cos(0.4f + j / 2));
             }
@@ -32,9 +29,6 @@ public class MainClass {
         };
 
         Runnable task = () -> {
-            for (int i = 0; i < h; i++) {
-                a2[i] = 1;
-            }
             for (int j = 0; j < h; j++) {
                 a2[j] = (float) (a2[j] * Math.sin(0.2f + j / 5) * Math.cos(0.2f + j / 5) * Math.cos(0.4f + j / 2));
             }
