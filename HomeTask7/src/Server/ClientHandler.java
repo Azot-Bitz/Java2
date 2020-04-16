@@ -51,7 +51,6 @@ public class ClientHandler {
                         name = nick;
                         myServer.broadcastMsg(name + " зашел в чат");
                         myServer.subscribe(this);
-                        myServer.broadcastClientsList();
                         return;
                     } else {
                         sendMsg("Учетная запись уже используется");

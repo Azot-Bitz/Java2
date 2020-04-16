@@ -54,10 +54,12 @@ public class MyServer {
 
     public synchronized void unsubscribe(ClientHandler o) {
         clients.remove(o);
+        broadcastClientsList();
     }
 
     public synchronized void subscribe(ClientHandler o) {
         clients.add(o);
+        broadcastClientsList();
     }
     public synchronized void sendMsgToClient(ClientHandler from, String nickTo, String msg) {
         for (ClientHandler o : clients) {
